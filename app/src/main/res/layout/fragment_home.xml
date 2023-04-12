@@ -1,14 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".ui.fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="180dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/profile_image"
+        app:civ_border_color="@color/light_grey"
+        app:civ_border_width="2dp"
+        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Hello, Rizal_RFK!"
+        android:textColor="@color/darker_white"
+        app:layout_constraintLeft_toRightOf="@+id/ivProfile"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+        app:layout_constraintTop_toTopOf="@+id/ivProfile" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's get back tp work."
+        android:textColor="@color/light_grey"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvHello"
+        app:layout_constraintTop_toBottomOf="@+id/tvHello" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_light_green_bg"
+        android:paddingHorizontal="24dp"
+        android:text="Overview"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+        app:layout_constraintTop_toTopOf="@+id/ivProfile" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvIncome"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="32dp"
+        android:background="@color/darker_white"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvIncomeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Income"
+                android:textColor="@color/dark_grey"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvIncomeDifference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="+$92.45"
+                android:textColor="@color/green"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="Than last week"
+                android:textColor="@color/grey"
+                android:textSize="12dp"
+                app:layout_constraintLeft_toRightOf="@id/tvIncomeDifference"
+                app:layout_constraintTop_toTopOf="@+id/tvIncomeDifference" />
+
+            <TextView
+                android:id="@+id/tvIncomeAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$3.439.00"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvIncomeDifference"
+                app:layout_constraintLeft_toLeftOf="@+id/tvIncomeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvIncomeLabel" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                app:cardBackgroundColor="@color/smoky_green"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvIncomeAmount"
+                app:layout_constraintLeft_toRightOf="@id/tvIncomeAmount"
+                app:layout_constraintTop_toTopOf="@+id/tvIncomeAmount">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="2.4%"
+                    android:textColor="@color/green"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center|right"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/arrow_upward_24"
+                    app:tint="@color/green" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvExpense"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="32dp"
+        android:background="@color/darker_white"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintRight_toLeftOf="@+id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvExpenseLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Expense"
+                android:textColor="@color/dark_grey"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvExpenseDifference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="-$15.32"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="Than last week"
+                android:textColor="@color/grey"
+                android:textSize="12dp"
+                app:layout_constraintLeft_toRightOf="@id/tvExpenseDifference"
+                app:layout_constraintTop_toTopOf="@+id/tvExpenseDifference" />
+
+            <TextView
+                android:id="@+id/tvExpenseAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$3.439.00"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvExpenseDifference"
+                app:layout_constraintLeft_toLeftOf="@+id/tvExpenseLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvExpenseLabel" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                app:cardBackgroundColor="@color/pink"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvExpenseAmount"
+                app:layout_constraintLeft_toRightOf="@id/tvExpenseAmount"
+                app:layout_constraintTop_toTopOf="@+id/tvExpenseAmount">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="2.4%"
+                    android:textColor="@color/red"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center|right"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/arrow_upward_24"
+                    app:tint="@color/red" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGraph"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginVertical="32dp"
+        android:background="@color/darker_white"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/leftGuideline"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/cvExpense" />
+
+    <TextView
+        android:id="@+id/tvTransactionsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="24dp"
+        android:text="Recent Transactions"
+        android:textColor="@color/dark_grey"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/leftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/cvGraph" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All"
+        android:textColor="@color/grey"
+        app:layout_constraintRight_toLeftOf="@+id/rightGuideline"
+        app:layout_constraintTop_toTopOf="@+id/tvTransactionsLabel" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rvTransactions"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="32dp"
+        android:background="@color/darker_white"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/leftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvTransactionsLabel"
+        app:layout_constraintRight_toLeftOf="@id/rightGuideline" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
