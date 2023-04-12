@@ -3,17 +3,21 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
-        android:title="@string/home" />
+        android:title="@string/home"
+        android:fontFamily="@font/montserrat_regular"/>
     <item
         android:id="@+id/lessonsFragment"
         android:icon="@drawable/ic_lessons"
-        android:title="@string/lessons" />
+        android:title="@string/lessons"
+        android:fontFamily="@font/montserrat_regular"/>
     <item
         android:id="@+id/studentsFragment"
         android:icon="@drawable/ic_students"
-        android:title="@string/students" />
+        android:title="@string/students"
+        android:fontFamily="@font/montserrat_regular"/>
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile"
-        android:title="@string/profile" />
+        android:title="@string/profile"
+        android:fontFamily="@font/montserrat_regular"/>
 </menu>
