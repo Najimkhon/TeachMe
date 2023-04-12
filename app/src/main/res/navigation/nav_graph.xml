@@ -10,4 +10,24 @@
         android:name="com.example.teachme.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/lessonsFragment"
+        android:name="com.example.teachme.ui.fragments.LessonsFragment"
+        android:label="fragment_lessons"
+        tools:layout="@layout/fragment_lessons" />
+    <fragment
+        android:id="@+id/pollsFragment"
+        android:name="com.example.teachme.ui.fragments.PollsFragment"
+        android:label="fragment_polls"
+        tools:layout="@layout/fragment_polls" />
+    <fragment
+        android:id="@+id/studentsFragment"
+        android:name="com.example.teachme.ui.fragments.StudentsFragment"
+        android:label="fragment_students"
+        tools:layout="@layout/fragment_students" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.teachme.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
