@@ -12,4 +12,9 @@
     <color name="darker_white">#fdfdfd</color>
     <color name="light_grey">#a6a6a6</color>
     <color name="grey">#676767</color>
+    <color name="green">#4aac60</color>
+    <color name="red">#d7928f</color>
+    <color name="dark_red">#c73639</color>
+    <color name="pink">#ffe2e2</color>
+    <color name="smoky_green">#c1e1d3</color>
 </resources>
