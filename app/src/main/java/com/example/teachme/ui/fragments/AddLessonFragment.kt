@@ -5,4 +5,7 @@ import com.example.teachme.databinding.FragmentAddLessonBinding
 
 
 class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLessonBinding::inflate) {
+    override fun prepareUI() {
+        binding.toolbar.tvTitle.text = "Add Lesson"
+    }
 }
