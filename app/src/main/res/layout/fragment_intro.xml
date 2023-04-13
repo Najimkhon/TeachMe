@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.IntroFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.IntroFragment"
+    android:background="@color/black">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_marginTop="32dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="200dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo"
+        app:tint="@color/darker_white"/>
+    <LinearLayout
+        android:id="@+id/logoText"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teach"
+            android:layout_gravity="center"
+            android:textSize="32sp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/darker_white"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ME"
+            android:textColor="@color/dark_grey"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:background="@drawable/button_light_green_bg"
+            android:padding="8dp"/>
+    </LinearLayout>
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_secondary_bg"
+        android:paddingHorizontal="24dp"
+        android:text="LOG IN"
+        android:textColor="@color/light_green"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignup"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_light_green_bg"
+        android:paddingHorizontal="24dp"
+        android:text="SIGN UP"
+        android:textColor="@color/dark_grey"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        android:layout_marginBottom="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/logoText"
+        android:text="Welcome to TeachME"
+        android:textColor="@color/darker_white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        />
+    <TextView
+        android:id="@+id/tvDescritption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome"
+        android:text="This is a platform for Tutors to register students and keep track of lessons as well as payments. To get started please sign up or log into your account"
+        android:textColor="@color/grey"
+        android:gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
