@@ -6,4 +6,7 @@
     <string name="lessons">Lessons</string>
     <string name="students">Students</string>
     <string name="profile">Profile</string>
+    <string name="add_description_text">You are adding one lesson with the chosen student for this date and time. The lesson will be added to all the same days of the week and will be visible on calendar.</string>
+    <string name="add_new_lesson">ADD NEW LESSON</string>
+    <string name="attach_student">Attach student</string>
 </resources>

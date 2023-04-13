@@ -14,7 +14,11 @@
         android:id="@+id/lessonsFragment"
         android:name="com.example.teachme.ui.fragments.LessonsFragment"
         android:label="fragment_lessons"
-        tools:layout="@layout/fragment_lessons" />
+        tools:layout="@layout/fragment_lessons" >
+        <action
+            android:id="@+id/action_lessonsFragment_to_addLessonFragment"
+            app:destination="@id/addLessonFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pollsFragment"
         android:name="com.example.teachme.ui.fragments.PollsFragment"
@@ -30,4 +34,14 @@
         android:name="com.example.teachme.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/addLessonFragment"
+        android:name="com.example.teachme.ui.fragments.AddLessonFragment"
+        android:label="fragment_add_lesson"
+        tools:layout="@layout/fragment_add_lesson" />
+    <fragment
+        android:id="@+id/lessonsCalendarFragment"
+        android:name="com.example.teachme.ui.fragments.LessonsCalendarFragment"
+        android:label="fragment_lessons_calendar"
+        tools:layout="@layout/fragment_lessons_calendar" />
 </navigation>
