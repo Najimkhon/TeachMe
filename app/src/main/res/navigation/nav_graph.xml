@@ -38,7 +38,11 @@
         android:id="@+id/studentsFragment"
         android:name="com.example.teachme.ui.fragments.StudentsFragment"
         android:label="fragment_students"
-        tools:layout="@layout/fragment_students" />
+        tools:layout="@layout/fragment_students" >
+        <action
+            android:id="@+id/action_studentsFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.teachme.ui.fragments.ProfileFragment"
@@ -69,4 +73,9 @@
         android:name="com.example.teachme.ui.fragments.TutorSignUpFragment"
         android:label="fragment_tutor_sign_in"
         tools:layout="@layout/fragment_tutor_sign_up" />
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.example.teachme.ui.fragments.AddStudentFragment"
+        android:label="fragment_add_student"
+        tools:layout="@layout/fragment_add_student" />
 </navigation>

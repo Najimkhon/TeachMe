@@ -1,5 +1,6 @@
 package com.example.teachme.data.models
 
+import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,6 +9,7 @@ data class StudentPM(
     @PrimaryKey(autoGenerate = true)
     val id:Int,
     var fullName: String,
+    var email: String,
     var telegram: String,
     var address: String,
     var phone: String,
