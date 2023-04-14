@@ -2,6 +2,7 @@ package com.example.teachme.ui.fragments
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.teachme.base.BaseFragment
 import com.example.teachme.data.models.StudentPM
 import com.example.teachme.databinding.FragmentAddStudentBinding
@@ -45,6 +46,7 @@ class AddStudentFragment :
             viewModel.insertStudent(student)
             Toast.makeText(requireContext(), "$name is added to Students list!", Toast.LENGTH_SHORT)
                 .show()
+            findNavController().popBackStack()
         } else {
             Toast.makeText(requireContext(), "Please, fill in the fields", Toast.LENGTH_SHORT)
                 .show()

@@ -8,6 +8,7 @@ import com.example.teachme.databinding.FragmentPaidStudentListBinding
 import com.example.teachme.ui.adapters.StudentAdapter
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 @AndroidEntryPoint
 class PaidStudentListFragment :
@@ -24,17 +25,17 @@ class PaidStudentListFragment :
     }
 
     override fun assignObjects() {
-        val rv = binding.rvStudents
-        rv.adapter = studentAdapter
-        rv.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        viewModel.students.observe(viewLifecycleOwner) {
-            studentAdapter.setData(it)
+        binding.rvStudents.apply {
+            adapter = studentAdapter
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            itemAnimator = SlideInUpAnimator().apply { addDuration = 300 }
         }
     }
 
     override fun setObservers() {
-
+        viewModel.students.observe(viewLifecycleOwner) {
+            studentAdapter.setData(it)
+        }
     }
 
 }
