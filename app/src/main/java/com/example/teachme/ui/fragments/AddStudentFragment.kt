@@ -1,5 +1,6 @@
 package com.example.teachme.ui.fragments
 
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -23,6 +24,16 @@ class AddStudentFragment :
         binding.btnAddStudent.setOnClickListener {
             addNewStudent()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 
     private fun addNewStudent() {
@@ -51,6 +62,5 @@ class AddStudentFragment :
             Toast.makeText(requireContext(), "Please, fill in the fields", Toast.LENGTH_SHORT)
                 .show()
         }
-
     }
 }

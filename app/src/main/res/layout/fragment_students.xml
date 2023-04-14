@@ -147,6 +147,7 @@
         android:backgroundTint="@color/dark_grey"
         android:src="@drawable/ic_plus"
         app:tint="@color/light_green"
+        app:backgroundTint="@color/light_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
