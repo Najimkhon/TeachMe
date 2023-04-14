@@ -9,7 +9,7 @@ data class StudentPM(
     val id:Int,
     var fullName: String,
     var telegram: String,
-    var teacherId: Int,
     var address: String,
-    var phone: String
+    var phone: String,
+    var payment: Int
 )
