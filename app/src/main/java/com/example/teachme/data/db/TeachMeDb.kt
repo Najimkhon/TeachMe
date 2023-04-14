@@ -10,7 +10,7 @@ import com.example.teachme.data.models.StudentPM
     version = 1
 )
 
-abstract class teachMeDb : RoomDatabase() {
+abstract class TeachMeDb : RoomDatabase() {
 
     abstract fun getRunDao(): StudentDAO
 }
