@@ -9,7 +9,7 @@ import androidx.room.Query
 import com.example.teachme.data.models.StudentPM
 
 @Dao
-interface StudentDao {
+interface StudentDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertStudent(studentPM: StudentPM)
