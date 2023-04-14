@@ -75,7 +75,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_light_green_bg"
+            android:background="@drawable/light_green_bg"
             android:paddingHorizontal="24dp"
             android:text="Overview"
             android:textSize="12sp"

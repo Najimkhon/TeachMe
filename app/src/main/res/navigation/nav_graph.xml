@@ -66,7 +66,7 @@
         tools:layout="@layout/fragment_tutor_log_in" />
     <fragment
         android:id="@+id/tutorSignInFragment"
-        android:name="com.example.teachme.ui.fragments.TutorSignInFragment"
+        android:name="com.example.teachme.ui.fragments.TutorSignUpFragment"
         android:label="fragment_tutor_sign_in"
-        tools:layout="@layout/fragment_tutor_sign_in" />
+        tools:layout="@layout/fragment_tutor_sign_up" />
 </navigation>
