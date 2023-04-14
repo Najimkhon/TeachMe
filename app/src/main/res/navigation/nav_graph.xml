@@ -9,7 +9,17 @@
         android:id="@+id/homeFragment"
         android:name="com.example.teachme.ui.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_introFragment"
+            app:destination="@id/introFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_tutorSignInFragment"
+            app:destination="@id/tutorSignInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_tutorLogInFragment"
+            app:destination="@id/tutorLogInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lessonsFragment"
         android:name="com.example.teachme.ui.fragments.LessonsFragment"
@@ -44,4 +54,19 @@
         android:name="com.example.teachme.ui.fragments.LessonsCalendarFragment"
         android:label="fragment_lessons_calendar"
         tools:layout="@layout/fragment_lessons_calendar" />
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.example.teachme.ui.fragments.IntroFragment"
+        android:label="fragment_intro"
+        tools:layout="@layout/fragment_intro" />
+    <fragment
+        android:id="@+id/tutorLogInFragment"
+        android:name="com.example.teachme.ui.fragments.TutorLogInFragment"
+        android:label="fragment_tutor_log_in"
+        tools:layout="@layout/fragment_tutor_log_in" />
+    <fragment
+        android:id="@+id/tutorSignInFragment"
+        android:name="com.example.teachme.ui.fragments.TutorSignInFragment"
+        android:label="fragment_tutor_sign_in"
+        tools:layout="@layout/fragment_tutor_sign_in" />
 </navigation>
