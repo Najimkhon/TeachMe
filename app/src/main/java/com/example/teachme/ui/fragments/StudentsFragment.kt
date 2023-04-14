@@ -25,7 +25,7 @@ class StudentsFragment : BaseFragment<FragmentStudentsBinding>(FragmentStudentsB
     }
 
     override fun setListeners() {
-        binding.toolbar.tvTitle.setOnClickListener{
+        binding.fabAddStudent.setOnClickListener{
             findNavController().navigate(R.id.action_studentsFragment_to_addStudentFragment)
         }
     }

@@ -1,6 +1,5 @@
 package com.example.teachme.data.models
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

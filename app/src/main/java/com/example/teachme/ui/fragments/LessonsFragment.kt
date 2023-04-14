@@ -4,7 +4,6 @@ import android.content.res.Resources
 import com.example.teachme.base.BaseFragment
 import com.example.teachme.databinding.FragmentLessonsBinding
 import com.example.teachme.ui.adapters.LessonsPagerAdapter
-import com.example.teachme.ui.adapters.StudentsPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 
