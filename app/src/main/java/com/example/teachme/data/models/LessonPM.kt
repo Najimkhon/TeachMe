@@ -13,6 +13,8 @@ data class LessonPM(
     var title: String,
     var startDate: Int,
     var selectedDays: String,
+    var startTime: Int,
+    var endTime: Int,
     var rate: Rate,
     var note: String
 ) : Parcelable

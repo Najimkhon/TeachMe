@@ -5,5 +5,6 @@ enum class Rate {
     Bad,
     Good,
     Great,
-    Fantastic
+    Fantastic,
+    Unrated
 }
