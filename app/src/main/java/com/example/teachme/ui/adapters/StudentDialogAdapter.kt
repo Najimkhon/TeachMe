@@ -47,6 +47,10 @@ class StudentDialogAdapter(
 
     fun setData(students: List<StudentPM>) = differ.submitList(students)
 
+    fun getItem(position: Int): StudentPM {
+        return differ.currentList[position]
+    }
+
     inner class StudentDialogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val layout = itemView as StudentDialogItemLayout
     }

@@ -3,11 +3,16 @@ package com.example.teachme.ui.fragments
 import android.app.TimePickerDialog
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.teachme.base.BaseFragment
+import com.example.teachme.data.models.LessonPM
+import com.example.teachme.data.models.Rate
+import com.example.teachme.data.models.StudentPM
 import com.example.teachme.databinding.FragmentAddLessonBinding
 import com.example.teachme.ui.dialogs.DialogManager
 import com.example.teachme.ui.dialogs.OnDialogClickListener
+import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import java.text.SimpleDateFormat
@@ -17,12 +22,14 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLessonBinding::inflate) {
 
+    private val viewModel: MainViewModel by viewModels()
     private val args by navArgs<AddLessonFragmentArgs>()
     private val formatter = SimpleDateFormat("MMMM dd, EEEE", Locale.US)
     private val timeFormatter = SimpleDateFormat("HH:mm", Locale.US)
     private var calendar = Calendar.getInstance()
     private var startTimeInMillis = 0L
     private var finishTimeInMillis = 0L
+    private lateinit var students: List<StudentPM>
     
     @Inject
     lateinit var dialogManager: DialogManager
@@ -62,14 +69,27 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
         
         binding.btnAttachStudent.setOnClickListener{
             dialogManager.showStudentsListDialog(object : OnDialogClickListener {
-                override fun onSaveClicked(input: String) {
-                    Toast.makeText(requireContext(), "input", Toast.LENGTH_SHORT).show()
+                override fun onSaveClicked(selectedStudents: List<StudentPM>) {
+                    students = selectedStudents
+                    println("selected students count: WOOOORKED " + selectedStudents.size)
                 }
             })
         }
 
         binding.btnAddLesson.setOnClickListener{
             val selectedDays = getSelectedDays()
+
+            val newLesson = LessonPM(
+                0,
+                "Lesson",
+                args.currentDate,
+                selectedDays,
+                startTimeInMillis,
+                finishTimeInMillis,
+                Rate.Unrated,
+                ""
+            )
+            viewModel.insertLesson(newLesson)
         }
 
     }

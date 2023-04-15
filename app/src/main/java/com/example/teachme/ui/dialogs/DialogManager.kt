@@ -1,6 +1,7 @@
 package com.example.teachme.ui.dialogs
 
 import androidx.fragment.app.FragmentManager
+import com.example.teachme.data.models.StudentPM
 import javax.inject.Inject
 
 
@@ -8,12 +9,12 @@ class DialogManager @Inject constructor(private val fragmentManager: FragmentMan
 
     fun showStudentsListDialog(listener: OnDialogClickListener) {
         val dialog = StudentListDialog(listener)
-        dialog.show(fragmentManager, "MuscleGroupDialog")
+        dialog.show(fragmentManager, "StudentListDialog")
     }
 }
 
 
 interface OnDialogClickListener {
-    fun onSaveClicked(input: String)
+    fun onSaveClicked(selectedStudents: List<StudentPM>)
 }
 

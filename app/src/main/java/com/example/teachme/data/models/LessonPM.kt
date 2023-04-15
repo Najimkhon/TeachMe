@@ -11,10 +11,10 @@ data class LessonPM(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     var title: String,
-    var startDate: Int,
+    var startDate: Long,
     var selectedDays: String,
-    var startTime: Int,
-    var endTime: Int,
+    var startTime: Long,
+    var endTime: Long,
     var rate: Rate,
-    var note: String
+    var note: String,
 ) : Parcelable
