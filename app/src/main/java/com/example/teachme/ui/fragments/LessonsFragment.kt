@@ -22,5 +22,4 @@ class LessonsFragment : BaseFragment<FragmentLessonsBinding>(FragmentLessonsBind
             }
         }.attach()
     }
-
 }
