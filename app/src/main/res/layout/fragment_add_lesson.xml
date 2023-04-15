@@ -308,20 +308,20 @@
             android:paddingHorizontal="24dp"
             android:text="@string/add_new_lesson"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
             app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescritption"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvDescritption" />
 
         <TextView
             android:id="@+id/tvDescritption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/add_description_text"
             app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
             app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+            app:layout_constraintTop_toBottomOf="@+id/cbGenerate" />
 
         <TextView
             android:id="@+id/tvSubjectLbl"
@@ -351,6 +351,16 @@
             app:layout_constraintRight_toRightOf="@+id/rightGuideline"
             app:layout_constraintTop_toBottomOf="@+id/tvSubjectLbl" />
 
+        <CheckBox
+            android:id="@+id/cbGenerate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Autogenerate lessons for all selected days"
+            android:textColor="@color/grey"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/etSubject" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

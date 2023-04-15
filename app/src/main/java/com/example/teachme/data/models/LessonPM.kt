@@ -14,5 +14,6 @@ data class LessonPM(
     var endTime: Long,
     var rate: Rate,
     var note: String,
-    var students: List<StudentPM>
+    var students: List<StudentPM>,
+    var autogenerateLessons: Boolean
 )

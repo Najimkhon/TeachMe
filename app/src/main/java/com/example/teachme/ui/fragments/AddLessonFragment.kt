@@ -30,6 +30,7 @@ class AddLessonFragment :
     private var calendar = Calendar.getInstance()
     private var startTimeInMillis = 0L
     private var finishTimeInMillis = 0L
+    private var autoGenerate = false
     private lateinit var students: List<StudentPM>
 
     @Inject
@@ -83,6 +84,7 @@ class AddLessonFragment :
         binding.btnAddLesson.setOnClickListener {
             val selectedDays = getSelectedDays()
             val subject = binding.etSubject.text.toString()
+            this.autoGenerate = binding.cbGenerate.isChecked
             if (selectedDays.isNotEmpty() && subject.isNotEmpty() && ::students.isInitialized) {
                 val newLesson = LessonPM(
                     0,
@@ -93,7 +95,8 @@ class AddLessonFragment :
                     finishTimeInMillis,
                     Rate.Unrated,
                     "",
-                    students
+                    students,
+                    autoGenerate
                 )
                 viewModel.insertLesson(newLesson)
                 Toast.makeText(requireContext(), "Lesson: $subject is added", Toast.LENGTH_SHORT)
@@ -102,7 +105,6 @@ class AddLessonFragment :
                 Toast.makeText(requireContext(), "Fields must not be empty", Toast.LENGTH_SHORT)
                     .show()
             }
-
         }
     }
 
