@@ -14,5 +14,7 @@ import com.example.teachme.data.models.StudentPM
 @TypeConverters(Converter::class)
 abstract class TeachMeDb : RoomDatabase() {
 
-    abstract fun getRunDao(): StudentDAO
+    abstract fun getStudentDao(): StudentDAO
+
+    abstract fun getLessonDao(): LessonDAO
 }

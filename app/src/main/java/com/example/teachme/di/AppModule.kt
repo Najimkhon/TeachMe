@@ -28,5 +28,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideStudentDao(db: TeachMeDb) = db.getRunDao()
+    fun provideStudentDao(db: TeachMeDb) = db.getStudentDao()
+
+    @Singleton
+    @Provides
+    fun provideLessonDao(db: TeachMeDb) = db.getLessonDao()
 }
