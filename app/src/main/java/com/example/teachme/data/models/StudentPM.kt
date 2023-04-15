@@ -12,6 +12,6 @@ data class StudentPM(
     var telegram: String,
     var address: String,
     var phone: String,
-    var payment: Int,
+    var payment: Long,
     var isChecked: Boolean =false
 )

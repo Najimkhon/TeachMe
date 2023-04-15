@@ -1,9 +1,10 @@
 package com.example.teachme.ui.fragments
 
 import android.app.TimePickerDialog
-import android.widget.TimePicker
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.teachme.base.BaseFragment
 import com.example.teachme.data.models.LessonPM
@@ -14,13 +15,13 @@ import com.example.teachme.ui.dialogs.DialogManager
 import com.example.teachme.ui.dialogs.OnDialogClickListener
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLessonBinding::inflate) {
+class AddLessonFragment :
+    BaseFragment<FragmentAddLessonBinding>(FragmentAddLessonBinding::inflate) {
 
     private val viewModel: MainViewModel by viewModels()
     private val args by navArgs<AddLessonFragmentArgs>()
@@ -30,7 +31,7 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
     private var startTimeInMillis = 0L
     private var finishTimeInMillis = 0L
     private lateinit var students: List<StudentPM>
-    
+
     @Inject
     lateinit var dialogManager: DialogManager
 
@@ -38,16 +39,19 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
         binding.toolbar.tvTitle.text = "Add Lesson"
         binding.tvCurrentDate.text = formatter.format(args.currentDate)
         binding.apply {
-            tvStartTime.text = timeFormatter.format(calendar.timeInMillis)
             val hourLater = Calendar.getInstance()
             hourLater.add(Calendar.HOUR, 1)
-            tvFinishTime.text = timeFormatter.format(hourLater.timeInMillis)
+            startTimeInMillis = calendar.timeInMillis
+            finishTimeInMillis = hourLater.timeInMillis
+            tvFinishTime.text = timeFormatter.format(finishTimeInMillis)
+            tvStartTime.text = timeFormatter.format(startTimeInMillis)
         }
+
     }
 
     override fun setListeners() {
-        binding.tvStartTime.setOnClickListener{
-            showTimePicker{ hour, minute ->
+        binding.tvStartTime.setOnClickListener {
+            showTimePicker { hour, minute ->
                 calendar.apply {
                     set(Calendar.HOUR_OF_DAY, hour)
                     set(Calendar.MINUTE, minute)
@@ -56,8 +60,8 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
                 startTimeInMillis = calendar.timeInMillis
             }
         }
-        binding.tvFinishTime.setOnClickListener{
-            showTimePicker{ hour, minute ->
+        binding.tvFinishTime.setOnClickListener {
+            showTimePicker { hour, minute ->
                 calendar.apply {
                     set(Calendar.HOUR_OF_DAY, hour)
                     set(Calendar.MINUTE, minute)
@@ -66,8 +70,8 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
                 finishTimeInMillis = calendar.timeInMillis
             }
         }
-        
-        binding.btnAttachStudent.setOnClickListener{
+
+        binding.btnAttachStudent.setOnClickListener {
             dialogManager.showStudentsListDialog(object : OnDialogClickListener {
                 override fun onSaveClicked(selectedStudents: List<StudentPM>) {
                     students = selectedStudents
@@ -76,62 +80,80 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
             })
         }
 
-        binding.btnAddLesson.setOnClickListener{
+        binding.btnAddLesson.setOnClickListener {
             val selectedDays = getSelectedDays()
+            val subject = binding.etSubject.text.toString()
+            if (selectedDays.isNotEmpty() && subject.isNotEmpty() && ::students.isInitialized) {
+                val newLesson = LessonPM(
+                    0,
+                    subject,
+                    args.currentDate,
+                    selectedDays,
+                    startTimeInMillis,
+                    finishTimeInMillis,
+                    Rate.Unrated,
+                    "",
+                    students
+                )
+                viewModel.insertLesson(newLesson)
+                Toast.makeText(requireContext(), "Lesson: $subject is added", Toast.LENGTH_SHORT)
+                findNavController().popBackStack()
+            } else {
+                Toast.makeText(requireContext(), "Fields must not be empty", Toast.LENGTH_SHORT)
+                    .show()
+            }
 
-            val newLesson = LessonPM(
-                0,
-                "Lesson",
-                args.currentDate,
-                selectedDays,
-                startTimeInMillis,
-                finishTimeInMillis,
-                Rate.Unrated,
-                ""
-            )
-            viewModel.insertLesson(newLesson)
         }
-
     }
 
     override fun assignObjects() {
 
     }
 
-    private fun showTimePicker(action: (Int, Int)-> Unit){
+    override fun onStart() {
+        super.onStart()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+    }
+
+    private fun showTimePicker(action: (Int, Int) -> Unit) {
         TimePickerDialog(
             requireContext(),
-            { _, hour, minute -> action.invoke(hour, minute)},
+            { _, hour, minute -> action.invoke(hour, minute) },
             calendar.get(Calendar.HOUR_OF_DAY),
             calendar.get(Calendar.MINUTE),
             false
         ).show()
     }
 
-    private fun getSelectedDays():String{
-        var selectedDays =""
+    private fun getSelectedDays(): String {
+        var selectedDays = ""
         val selectedButtons = binding.toggleButton.selectedButtons
         for (selectedButton in selectedButtons) {
-            when(selectedButton){
-                binding.btnMon->{
+            when (selectedButton) {
+                binding.btnMon -> {
                     selectedDays += "1"
                 }
-                binding.btnTue->{
+                binding.btnTue -> {
                     selectedDays += "2"
                 }
-                binding.btnWed->{
+                binding.btnWed -> {
                     selectedDays += "3"
                 }
-                binding.btnThu->{
+                binding.btnThu -> {
                     selectedDays += "4"
                 }
-                binding.btnFri->{
+                binding.btnFri -> {
                     selectedDays += "5"
                 }
-                binding.btnSun->{
+                binding.btnSun -> {
                     selectedDays += "6"
                 }
-                binding.btnSat->{
+                binding.btnSat -> {
                     selectedDays += "7"
                 }
             }

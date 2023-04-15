@@ -1,347 +1,356 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.AddLessonFragment">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/header"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/body"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/body_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/midGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        <View
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/leftGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+        <View
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/body_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Create a lesson"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rightGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/currentDateBlock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_lessons" />
-
-        <TextView
-            android:id="@+id/tvCurrentDate"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/midGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:text="13 April, Thursday"
-            android:textColor="@color/black" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
-    <View
-        android:id="@+id/greyBlock"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/grey_block_bg"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/currentDateBlock" />
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="16dp"
-        android:background="@color/darker_white"
-        app:layout_constraintBottom_toBottomOf="@id/greyBlock"
-        app:layout_constraintRight_toRightOf="@+id/midGuideline"
-        app:layout_constraintTop_toTopOf="@id/greyBlock" />
-
-    <TextView
-        android:id="@+id/tvStartTime"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_bg"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="15:30"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/greyBlock"
-        app:layout_constraintLeft_toLeftOf="@id/greyBlock"
-        app:layout_constraintRight_toRightOf="@+id/midGuideline" />
-
-    <TextView
-        android:id="@+id/tvFinishTime"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_bg"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="16:30"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvStartTime"
-        app:layout_constraintLeft_toLeftOf="@+id/midGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toTopOf="@+id/tvStartTime" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Starts:"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/tvStartTime"
-        app:layout_constraintLeft_toLeftOf="@+id/tvStartTime"
-        app:layout_constraintRight_toRightOf="@+id/tvStartTime"
-        app:layout_constraintTop_toTopOf="@+id/greyBlock" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Finishes:"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/tvFinishTime"
-        app:layout_constraintLeft_toLeftOf="@+id/tvFinishTime"
-        app:layout_constraintRight_toRightOf="@+id/tvFinishTime"
-        app:layout_constraintTop_toTopOf="@+id/greyBlock" />
-
-    <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
-        android:id="@+id/toggleButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        app:flexWrap="wrap"
-        app:justifyContent="center"
-        app:layout_constraintTop_toBottomOf="@+id/greyBlock"
-        app:toggle_horizontalSpacing="16dp"
-        app:toggle_requiredAmount="1"
-        app:toggle_selectAnimation="circular_reveal"
-        app:toggle_selectableAmount="7"
-
-        >
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnMon"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            app:toggle_backgroundColor="@color/grey"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Mon"
-            app:toggle_textColor="@color/light_grey" />
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnTue"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            app:toggle_backgroundColor="@color/grey"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Tue"
-            app:toggle_textColor="@color/light_grey" />
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnWed"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            app:toggle_backgroundColor="@color/grey"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Wed"
-            app:toggle_textColor="@color/light_grey" />
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnThu"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            app:toggle_backgroundColor="@color/grey"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Thu"
-            app:toggle_textColor="@color/light_grey" />
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnFri"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            app:toggle_backgroundColor="@color/grey"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Fri"
-            app:toggle_textColor="@color/light_grey" />
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnSat"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_marginVertical="8dp"
-            app:toggle_backgroundColor="@color/red"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Sat"
-            app:toggle_textColor="@color/light_grey" />
-
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-            android:id="@+id/btnSun"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_marginVertical="8dp"
-            app:toggle_backgroundColor="@color/red"
-            app:toggle_btnCornerRadius="10dp"
-            app:toggle_selectedBackgroundColor="@color/light_green"
-            app:toggle_selectedTextColor="@color/black"
-            app:toggle_text="Sun"
-            app:toggle_textColor="@color/light_grey" />
-
-    </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
-
-    <TextView
-        android:id="@+id/tvStudentsLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Students"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/et_bg"
-        android:padding="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/tvStudentsLbl">
-
-        <TextView
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:text="Attach student"
-            android:textColor="@color/black" />
+            android:text="Create a lesson"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_circular_add_24"
-            app:tint="@color/black" />
-    </FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
 
-    <FrameLayout
-        android:id="@+id/btnAttachStudent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/et_bg"
-        android:padding="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/tvStudentsLbl">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/currentDateBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_lessons" />
+
+            <TextView
+                android:id="@+id/tvCurrentDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:text="13 April, Thursday"
+                android:textColor="@color/black" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/greyBlock"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/grey_block_bg"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/currentDateBlock" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/darker_white"
+            app:layout_constraintBottom_toBottomOf="@id/greyBlock"
+            app:layout_constraintRight_toRightOf="@+id/midGuideline"
+            app:layout_constraintTop_toTopOf="@id/greyBlock" />
+
+        <TextView
+            android:id="@+id/tvStartTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/et_bg"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="15:30"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/greyBlock"
+            app:layout_constraintLeft_toLeftOf="@id/greyBlock"
+            app:layout_constraintRight_toRightOf="@+id/midGuideline" />
+
+        <TextView
+            android:id="@+id/tvFinishTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/et_bg"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="16:30"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvStartTime"
+            app:layout_constraintLeft_toLeftOf="@+id/midGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toTopOf="@+id/tvStartTime" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:text="@string/attach_student"
-            android:textColor="@color/black" />
+            android:text="Starts:"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tvStartTime"
+            app:layout_constraintLeft_toLeftOf="@+id/tvStartTime"
+            app:layout_constraintRight_toRightOf="@+id/tvStartTime"
+            app:layout_constraintTop_toTopOf="@+id/greyBlock" />
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_circular_add_24"
-            app:tint="@color/black" />
-    </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Finishes:"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tvFinishTime"
+            app:layout_constraintLeft_toLeftOf="@+id/tvFinishTime"
+            app:layout_constraintRight_toRightOf="@+id/tvFinishTime"
+            app:layout_constraintTop_toTopOf="@+id/greyBlock" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAddLesson"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_light_green_bg"
-        android:paddingHorizontal="24dp"
-        android:text="@string/add_new_lesson"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescritption" />
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/toggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:flexWrap="wrap"
+            app:justifyContent="center"
+            app:layout_constraintTop_toBottomOf="@+id/greyBlock"
+            app:toggle_horizontalSpacing="16dp"
+            app:toggle_requiredAmount="1"
+            app:toggle_selectAnimation="circular_reveal"
+            app:toggle_selectableAmount="7"
 
-    <TextView
-        android:id="@+id/tvDescritption"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="@string/add_description_text"
-        app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
-        app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/btnAttachStudent" />
+            >
 
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnMon"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                app:toggle_backgroundColor="@color/grey"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Mon"
+                app:toggle_textColor="@color/light_grey" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnTue"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                app:toggle_backgroundColor="@color/grey"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Tue"
+                app:toggle_textColor="@color/light_grey" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnWed"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                app:toggle_backgroundColor="@color/grey"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Wed"
+                app:toggle_textColor="@color/light_grey" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnThu"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                app:toggle_backgroundColor="@color/grey"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Thu"
+                app:toggle_textColor="@color/light_grey" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnFri"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                app:toggle_backgroundColor="@color/grey"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Fri"
+                app:toggle_textColor="@color/light_grey" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnSat"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginVertical="8dp"
+                app:toggle_backgroundColor="@color/red"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Sat"
+                app:toggle_textColor="@color/light_grey" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/btnSun"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginVertical="8dp"
+                app:toggle_backgroundColor="@color/red"
+                app:toggle_btnCornerRadius="10dp"
+                app:toggle_selectedBackgroundColor="@color/light_green"
+                app:toggle_selectedTextColor="@color/black"
+                app:toggle_text="Sun"
+                app:toggle_textColor="@color/light_grey" />
+
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+        <TextView
+            android:id="@+id/tvStudentsLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Students"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+
+        <FrameLayout
+            android:id="@+id/btnAttachStudent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/et_bg"
+            android:padding="12dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvStudentsLbl">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/attach_student"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_circular_add_24"
+                app:tint="@color/black" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddLesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/button_light_green_bg"
+            android:paddingHorizontal="24dp"
+            android:text="@string/add_new_lesson"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescritption"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvDescritption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/add_description_text"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+
+        <TextView
+            android:id="@+id/tvSubjectLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Subject"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/btnAttachStudent" />
+
+        <EditText
+            android:id="@+id/etSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/et_bg"
+            android:drawableEnd="@drawable/ic_circular_add_24"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:hint="Subject"
+            android:padding="12dp"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubjectLbl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

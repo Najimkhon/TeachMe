@@ -51,9 +51,8 @@ class AddStudentFragment :
                 telegram,
                 address,
                 phone,
-                payment.toInt()
+                payment.toLong()
             )
-
             viewModel.insertStudent(student)
             Toast.makeText(requireContext(), "$name is added to Students list!", Toast.LENGTH_SHORT)
                 .show()
