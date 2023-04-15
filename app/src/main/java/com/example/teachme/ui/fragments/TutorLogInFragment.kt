@@ -11,6 +11,10 @@ class TutorLogInFragment : BaseFragment<FragmentTutorLogInBinding>(FragmentTutor
         binding.btnLogIn.setOnClickListener{
             findNavController().navigate(R.id.action_tutorLogInFragment_to_homeFragment)
         }
+
+        binding.btnRegister.setOnClickListener{
+            findNavController().navigate(R.id.action_tutorLogInFragment_to_tutorSignInFragment)
+        }
     }
 
     override fun onStart() {

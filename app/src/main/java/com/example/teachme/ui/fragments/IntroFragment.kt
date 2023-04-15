@@ -12,8 +12,6 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
         requireActivity().window.navigationBarColor = resources.getColor(R.color.black)
     }
 
-
-
     override fun setListeners() {
         binding.btnLogin.setOnClickListener{
             findNavController().navigate(R.id.action_introFragment_to_tutorLogInFragment)
