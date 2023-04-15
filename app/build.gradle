@@ -77,4 +77,7 @@ dependencies {
     //recyclerview anim
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
 
+    //Toggle button
+    implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1'
+
 }
