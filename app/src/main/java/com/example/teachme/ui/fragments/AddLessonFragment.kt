@@ -9,6 +9,7 @@ import com.example.teachme.databinding.FragmentAddLessonBinding
 import com.example.teachme.ui.dialogs.DialogManager
 import com.example.teachme.ui.dialogs.OnDialogClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -66,6 +67,11 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
                 }
             })
         }
+
+        binding.btnAddLesson.setOnClickListener{
+            val selectedDays = getSelectedDays()
+        }
+
     }
 
     override fun assignObjects() {
@@ -80,5 +86,36 @@ class AddLessonFragment : BaseFragment<FragmentAddLessonBinding>(FragmentAddLess
             calendar.get(Calendar.MINUTE),
             false
         ).show()
+    }
+
+    private fun getSelectedDays():String{
+        var selectedDays =""
+        val selectedButtons = binding.toggleButton.selectedButtons
+        for (selectedButton in selectedButtons) {
+            when(selectedButton){
+                binding.btnMon->{
+                    selectedDays += "1"
+                }
+                binding.btnTue->{
+                    selectedDays += "2"
+                }
+                binding.btnWed->{
+                    selectedDays += "3"
+                }
+                binding.btnThu->{
+                    selectedDays += "4"
+                }
+                binding.btnFri->{
+                    selectedDays += "5"
+                }
+                binding.btnSun->{
+                    selectedDays += "6"
+                }
+                binding.btnSat->{
+                    selectedDays += "7"
+                }
+            }
+        }
+        return selectedDays
     }
 }
