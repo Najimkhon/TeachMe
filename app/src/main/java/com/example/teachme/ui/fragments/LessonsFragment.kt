@@ -17,7 +17,7 @@ class LessonsFragment : BaseFragment<FragmentLessonsBinding>(FragmentLessonsBind
         TabLayoutMediator(binding.tabLayout, binding.vpLessons){ tab, index ->
             tab.text = when(index){
                 0->{"Calendar"}
-                1->{"List"}
+                1->{"Today"}
                 else->{throw Resources.NotFoundException("Position Not Found")}
             }
         }.attach()

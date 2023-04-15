@@ -37,7 +37,11 @@
         android:id="@+id/addLessonFragment"
         android:name="com.example.teachme.ui.fragments.AddLessonFragment"
         android:label="fragment_add_lesson"
-        tools:layout="@layout/fragment_add_lesson" />
+        tools:layout="@layout/fragment_add_lesson" >
+        <argument
+            android:name="currentDate"
+            app:argType="long" />
+    </fragment>
     <fragment
         android:id="@+id/introFragment"
         android:name="com.example.teachme.ui.fragments.IntroFragment"

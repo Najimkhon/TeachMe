@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.LessonsListFragment">
+    tools:context=".ui.fragments.TodayFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddLesson"
@@ -14,7 +14,7 @@
         android:backgroundTint="@color/dark_grey"
         android:src="@drawable/ic_plus"
         app:tint="@color/light_green"
-        android:layout_marginRight="4dp"
+        android:layout_marginRight="25dp"
         app:backgroundTint="@color/light_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
