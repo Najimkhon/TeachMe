@@ -161,10 +161,10 @@ class AddLessonFragment :
                 binding.btnFri -> {
                     selectedDays += "5"
                 }
-                binding.btnSun -> {
+                binding.btnSat -> {
                     selectedDays += "6"
                 }
-                binding.btnSat -> {
+                binding.btnSun -> {
                     selectedDays += "7"
                 }
             }

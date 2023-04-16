@@ -1,6 +1,5 @@
 package com.example.teachme.ui.fragments
 
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,13 +15,10 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 @AndroidEntryPoint
 class PaidStudentListFragment :
     BaseFragment<FragmentPaidStudentListBinding>(FragmentPaidStudentListBinding::inflate) {
+
     private val viewModel: MainViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private val studentAdapter: StudentAdapter by lazy { StudentAdapter(requireContext()) }
-
-    override fun prepareUI() {
-
-    }
 
     override fun assignObjects() {
         binding.rvStudents.apply {
@@ -30,6 +26,10 @@ class PaidStudentListFragment :
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             itemAnimator = SlideInUpAnimator().apply { addDuration = 300 }
         }
+    }
+
+    override fun prepareUI() {
+
     }
 
     override fun setObservers() {

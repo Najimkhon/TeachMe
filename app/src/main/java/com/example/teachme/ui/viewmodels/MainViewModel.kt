@@ -1,5 +1,6 @@
 package com.example.teachme.ui.viewmodels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.teachme.data.models.LessonPM
@@ -32,4 +33,6 @@ class MainViewModel @Inject constructor(
     fun deleteLesson(lessonPM: LessonPM) = viewModelScope.launch {
         mainRepository.deleteLesson(lessonPM)
     }
+
+    fun getTodaysLessons(date: Long, selectedDays: String): LiveData<List<LessonPM>> = mainRepository.getTodaysLessons(date, selectedDays)
 }
