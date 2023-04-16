@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_lessonsFragment_to_addLessonFragment"
             app:destination="@id/addLessonFragment" />
+        <action
+            android:id="@+id/action_lessonsFragment_to_lessonListFragment"
+            app:destination="@id/lessonListFragment" />
     </fragment>
     <fragment
         android:id="@+id/pollsFragment"
@@ -85,4 +88,16 @@
         android:name="com.example.teachme.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/lessonListFragment"
+        android:name="com.example.teachme.ui.fragments.LessonListFragment"
+        android:label="fragment_lesson_list"
+        tools:layout="@layout/fragment_lesson_list" >
+        <argument
+            android:name="currentDate"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_lessonListFragment_to_addLessonFragment"
+            app:destination="@id/addLessonFragment" />
+    </fragment>
 </navigation>

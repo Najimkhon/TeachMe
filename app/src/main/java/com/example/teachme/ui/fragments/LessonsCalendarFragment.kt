@@ -16,7 +16,7 @@ class LessonsCalendarFragment : BaseFragment<FragmentLessonsCalendarBinding>(Fra
         binding.calendarView.setOnDateChangeListener { view, year, month, day ->
             calendar.set(year, month, day)
             val timeInMillis = calendar.timeInMillis
-            val action = LessonsFragmentDirections.actionLessonsFragmentToAddLessonFragment(timeInMillis)
+            val action = LessonsFragmentDirections.actionLessonsFragmentToLessonListFragment(timeInMillis)
             findNavController().navigate(action)
         }
     }
