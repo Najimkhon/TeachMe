@@ -20,7 +20,7 @@ class MainRepository @Inject constructor(
 
     fun searchThroughDatabase(query: String):LiveData<List<StudentPM>> = studentDAO.searchThroughDatabase(query)
 
-    fun getTodaysLessons(date: Long, selectedDays: String): LiveData<List<LessonPM>> = lessonDAO.getTodaysLessons(date, selectedDays)
+    fun getLessonsByDate(date: Long, selectedDays: String): LiveData<List<LessonPM>> = lessonDAO.getLessonsByDate(date, selectedDays)
 
     suspend fun insertLesson(lessonPM: LessonPM) = lessonDAO.insertLesson(lessonPM)
 

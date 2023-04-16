@@ -34,5 +34,5 @@ class MainViewModel @Inject constructor(
         mainRepository.deleteLesson(lessonPM)
     }
 
-    fun getTodaysLessons(date: Long, selectedDays: String): LiveData<List<LessonPM>> = mainRepository.getTodaysLessons(date, selectedDays)
+    fun getLessonsByDate(date: Long, selectedDays: String): LiveData<List<LessonPM>> = mainRepository.getLessonsByDate(date, selectedDays)
 }

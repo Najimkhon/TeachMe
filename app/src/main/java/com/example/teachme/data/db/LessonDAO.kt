@@ -21,8 +21,8 @@ interface LessonDAO {
     @Query("SELECT * FROM lesson_table ORDER BY id DESC")
     fun getAllLessons(): LiveData<List<LessonPM>>
 
+        //startDate = :date
 
-
-    @Query("SELECT * FROM lesson_table WHERE (startDate > :date AND selectedDays LIKE :selectedDays AND autogenerateLessons = 1) OR (startDate = :date AND selectedDays LIKE :selectedDays)")
-    fun getTodaysLessons(date: Long, selectedDays: String): LiveData<List<LessonPM>>
+    @Query("SELECT * FROM lesson_table WHERE (startDate < :date AND selectedDays LIKE :selectedDays AND autogenerateLessons = 1) OR (strftime('%Y %m %d', startDate/1000, 'unixepoch') = strftime('%Y %m %d', :date/1000, 'unixepoch') AND selectedDays LIKE :selectedDays)")
+    fun getLessonsByDate(date: Long, selectedDays: String): LiveData<List<LessonPM>>
 }

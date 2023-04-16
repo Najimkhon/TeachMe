@@ -37,17 +37,16 @@ class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::i
     }
 
     override fun setObservers() {
-//        viewModel.lessons.observe(viewLifecycleOwner) {
-//            lessonAdapter.setData(it)
-//
-//            it.forEach{
-//                var startdate = it.startDate
-//
-//                println("Current Lesson: " + it.autogenerateLessons + " selected days: " + it.selectedDays + "DAY OF THE WEEK" + getDayOfweek(startdate))
-//            }
-//
-//        }
-        viewModel.getTodaysLessons(calendar.timeInMillis, getDayOfweek(calendar.timeInMillis)).observe(viewLifecycleOwner){
+        viewModel.lessons.observe(viewLifecycleOwner) {
+            it.forEach{
+                var startdate = it.startDate
+
+                println("Current Lesson: " + it.autogenerateLessons + " selected days: " + it.selectedDays + "DAY OF THE WEEK" + getDayOfweek(startdate))
+                println("Today is: ${getDayOfweek(calendar.timeInMillis)}")
+            }
+
+        }
+        viewModel.getLessonsByDate(calendar.timeInMillis, getDayOfweek(calendar.timeInMillis)).observe(viewLifecycleOwner){
             lessonAdapter.setData(it)
             it.forEach{
                 var startdate = it.startDate
