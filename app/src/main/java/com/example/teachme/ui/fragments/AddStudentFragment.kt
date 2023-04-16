@@ -4,11 +4,16 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.teachme.base.BaseFragment
 import com.example.teachme.data.models.StudentPM
 import com.example.teachme.databinding.FragmentAddStudentBinding
+import com.example.teachme.ui.adapters.SelectedStudentAdapter
+import com.example.teachme.ui.adapters.StudentAdapter
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 @AndroidEntryPoint
 class AddStudentFragment :

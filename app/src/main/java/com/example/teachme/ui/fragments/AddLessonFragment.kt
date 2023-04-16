@@ -6,15 +6,19 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.teachme.base.BaseFragment
 import com.example.teachme.data.models.LessonPM
 import com.example.teachme.data.models.Rate
 import com.example.teachme.data.models.StudentPM
 import com.example.teachme.databinding.FragmentAddLessonBinding
+import com.example.teachme.ui.adapters.SelectedStudentAdapter
 import com.example.teachme.ui.dialogs.DialogManager
 import com.example.teachme.ui.dialogs.OnDialogClickListener
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -25,6 +29,7 @@ class AddLessonFragment :
 
     private val viewModel: MainViewModel by viewModels()
     private val args by navArgs<AddLessonFragmentArgs>()
+    private val studentAdapter: SelectedStudentAdapter by lazy { SelectedStudentAdapter(requireContext()) }
     private val formatter = SimpleDateFormat("MMMM dd, EEEE", Locale.US)
     private val timeFormatter = SimpleDateFormat("HH:mm", Locale.US)
     private var calendar = Calendar.getInstance()
@@ -76,7 +81,7 @@ class AddLessonFragment :
             dialogManager.showStudentsListDialog(object : OnDialogClickListener {
                 override fun onSaveClicked(selectedStudents: List<StudentPM>) {
                     students = selectedStudents
-                    println("selected students count: WOOOORKED " + selectedStudents.size)
+                    studentAdapter.setData(students)
                 }
             })
         }
@@ -109,7 +114,11 @@ class AddLessonFragment :
     }
 
     override fun assignObjects() {
-
+        binding.rvSlectedStudents.apply {
+            adapter = studentAdapter
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            itemAnimator = SlideInUpAnimator().apply { addDuration = 300 }
+        }
     }
 
     override fun onStart() {
