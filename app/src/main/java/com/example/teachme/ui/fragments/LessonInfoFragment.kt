@@ -1,5 +1,6 @@
 package com.example.teachme.ui.fragments
 
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
@@ -40,7 +41,8 @@ class LessonInfoFragment :
                 cbGenerate.isChecked = it.autogenerateLessons
                 setSelectedDays(it.selectedDays)
                 studentAdapter.setData(it.students)
-                binding.spRate.setSelection(sharedViewModel.parseRateToInt(it.rate))
+                spRate.setSelection(sharedViewModel.parseRateToInt(it.rate))
+                etNotes.setText(it.note)
                 currentLesson = it
             }
         }
@@ -52,6 +54,13 @@ class LessonInfoFragment :
             viewModel.updateLesson(currentLesson)
             Toast.makeText(requireContext(), "You rated the lesson!", Toast.LENGTH_SHORT).show()
         }
+
+        binding.btnAddNotes.setOnClickListener{
+            currentLesson.note = binding.etNotes.text.toString()
+            viewModel.updateLesson(currentLesson)
+            Toast.makeText(requireContext(), "Your note is saved!", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     override fun assignObjects() {
@@ -97,6 +106,16 @@ class LessonInfoFragment :
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 
 }

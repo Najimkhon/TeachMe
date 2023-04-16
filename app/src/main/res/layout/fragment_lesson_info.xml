@@ -306,8 +306,8 @@
             android:fontFamily="@font/montserrat_semi_bold"
             android:gravity="center"
             android:padding="12dp"
-            android:textColor="@color/black"
             android:text="Lesson"
+            android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
             app:layout_constraintRight_toRightOf="@+id/rightGuideline"
@@ -329,14 +329,13 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/et_bg"
+            android:entries="@array/Rates"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
             app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
             app:layout_constraintRight_toRightOf="@id/rightGuideline"
-            app:layout_constraintTop_toBottomOf="@id/cbGenerate"
-            android:entries="@array/Rates"
-            android:background="@drawable/et_bg"
-            android:gravity="center"
-            android:fontFamily="@font/montserrat_semi_bold"
-            />
+            app:layout_constraintTop_toBottomOf="@id/cbGenerate" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnRateLesson"
@@ -346,10 +345,48 @@
             android:background="@drawable/button_light_green_bg"
             android:text="Rate the lesson"
             android:textColor="@color/dark_grey"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
             app:layout_constraintRight_toRightOf="@id/rightGuideline"
             app:layout_constraintTop_toBottomOf="@id/spRate" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvNotes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/btnRateLesson">
+
+            <EditText
+                android:id="@+id/etNotes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:maxLines="8"
+                android:minLines="4"
+                android:padding="12dp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddNotes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/button_light_green_bg"
+            android:text="Add Notes"
+            android:textColor="@color/dark_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/cvNotes" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
