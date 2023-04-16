@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.LessonInfoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <View
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/body_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/midGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Start date:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/currentDateBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_lessons" />
+
+            <TextView
+                android:id="@+id/tvCurrentDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:text="13 April, Thursday"
+                android:textColor="@color/black" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/greyBlock"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/grey_block_bg"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/currentDateBlock" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/darker_white"
+            app:layout_constraintBottom_toBottomOf="@id/greyBlock"
+            app:layout_constraintRight_toRightOf="@+id/midGuideline"
+            app:layout_constraintTop_toTopOf="@id/greyBlock" />
+
+        <TextView
+            android:id="@+id/tvStartTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/et_bg"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="15:30"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/greyBlock"
+            app:layout_constraintLeft_toLeftOf="@id/greyBlock"
+            app:layout_constraintRight_toRightOf="@+id/midGuideline" />
+
+        <TextView
+            android:id="@+id/tvFinishTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/et_bg"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="16:30"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvStartTime"
+            app:layout_constraintLeft_toLeftOf="@+id/midGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toTopOf="@+id/tvStartTime" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Starts:"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tvStartTime"
+            app:layout_constraintLeft_toLeftOf="@+id/tvStartTime"
+            app:layout_constraintRight_toRightOf="@+id/tvStartTime"
+            app:layout_constraintTop_toTopOf="@+id/greyBlock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Finishes:"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tvFinishTime"
+            app:layout_constraintLeft_toLeftOf="@+id/tvFinishTime"
+            app:layout_constraintRight_toRightOf="@+id/tvFinishTime"
+            app:layout_constraintTop_toTopOf="@+id/greyBlock" />
+
+        <LinearLayout
+            android:id="@+id/weekDayBlock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/greyBlock"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Mon"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekday_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Tue"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekday_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Wed"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekday_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Thu"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekday_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Fri"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekday_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekEndBlock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/weekDayBlock"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Mon"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekend_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Tue"
+                android:padding="12dp"
+                android:textColor="@color/darker_white"
+                android:background="@drawable/weekend_bg"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStudentsLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Students Enrolled"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/weekEndBlock" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSlectedStudents"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvStudentsLbl"
+            app:layout_constraintBottom_toTopOf="@id/tvSubjectLbl"/>
+
+
+        <TextView
+            android:id="@+id/tvSubjectLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="Subject"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/rvSlectedStudents" />
+
+        <TextView
+            android:id="@+id/etSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/et_bg"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:padding="12dp"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@+id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubjectLbl" />
+
+        <CheckBox
+            android:id="@+id/cbGenerate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Autogenerate lessons for all selected days"
+            android:textColor="@color/grey"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@id/cbGenerate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Rate the lesson"
+            android:background="@drawable/button_light_green_bg"
+            android:textColor="@color/dark_grey"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
