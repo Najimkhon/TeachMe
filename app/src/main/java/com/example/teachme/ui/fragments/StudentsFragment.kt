@@ -64,7 +64,6 @@ class StudentsFragment : BaseFragment<FragmentStudentsBinding>(FragmentStudentsB
         sharedViewModel.searchThroughDatabase(searchQuery).observe(this) { list ->
             list?.let {
                 if (!it.isNullOrEmpty()) {
-                    binding.toolbar.tvTitle.text = it[0].fullName
                     sharedViewModel.setSearchResults(it)
                 }
             }

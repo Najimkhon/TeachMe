@@ -166,66 +166,65 @@
             android:id="@+id/weekDayBlock"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
             app:layout_constraintRight_toRightOf="@id/rightGuideline"
-            app:layout_constraintTop_toBottomOf="@id/greyBlock"
-            android:gravity="center"
-            >
+            app:layout_constraintTop_toBottomOf="@id/greyBlock">
+
             <TextView
                 android:id="@+id/tvMon"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Mon"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekday_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekday_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Mon"
+                android:textColor="@color/darker_white" />
+
             <TextView
                 android:id="@+id/tvTue"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Tue"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekday_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekday_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Tue"
+                android:textColor="@color/darker_white" />
+
             <TextView
                 android:id="@+id/tvWed"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Wed"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekday_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekday_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Wed"
+                android:textColor="@color/darker_white" />
+
             <TextView
                 android:id="@+id/tvThu"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Thu"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekday_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekday_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Thu"
+                android:textColor="@color/darker_white" />
+
             <TextView
                 android:id="@+id/tvFri"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Fri"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekday_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekday_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Fri"
+                android:textColor="@color/darker_white" />
 
         </LinearLayout>
 
@@ -233,33 +232,32 @@
             android:id="@+id/weekEndBlock"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
             app:layout_constraintRight_toRightOf="@id/rightGuideline"
-            app:layout_constraintTop_toBottomOf="@id/weekDayBlock"
-            android:gravity="center"
-            >
+            app:layout_constraintTop_toBottomOf="@id/weekDayBlock">
+
             <TextView
                 android:id="@+id/tvSat"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Mon"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekend_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekend_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Mon"
+                android:textColor="@color/darker_white" />
+
             <TextView
                 android:id="@+id/tvSun"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Tue"
-                android:padding="12dp"
-                android:textColor="@color/darker_white"
-                android:background="@drawable/weekend_bg"
                 android:layout_margin="4dp"
+                android:background="@drawable/weekend_bg"
                 android:gravity="center"
-                />
+                android:padding="12dp"
+                android:text="Tue"
+                android:textColor="@color/darker_white" />
         </LinearLayout>
 
         <TextView
@@ -280,10 +278,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="16dp"
+            app:layout_constraintBottom_toTopOf="@id/tvSubjectLbl"
             app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
             app:layout_constraintRight_toRightOf="@+id/rightGuideline"
-            app:layout_constraintTop_toBottomOf="@id/tvStudentsLbl"
-            app:layout_constraintBottom_toTopOf="@id/tvSubjectLbl"/>
+            app:layout_constraintTop_toBottomOf="@id/tvStudentsLbl" />
 
 
         <TextView
@@ -302,12 +300,15 @@
         <TextView
             android:id="@+id/etSubject"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/et_bg"
+            android:background="@drawable/grey_block_bg"
             android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
             android:padding="12dp"
-            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:text="Lesson"
+            android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="@+id/leftGuideline"
             app:layout_constraintRight_toRightOf="@+id/rightGuideline"
             app:layout_constraintTop_toBottomOf="@+id/tvSubjectLbl" />
@@ -322,17 +323,33 @@
             android:textColor="@color/grey"
             app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/etSubject" />
-        <androidx.appcompat.widget.AppCompatButton
+
+        <Spinner
+            android:id="@+id/spRate"
             android:layout_width="0dp"
-            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
             app:layout_constraintTop_toBottomOf="@id/cbGenerate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Rate the lesson"
-            android:background="@drawable/button_light_green_bg"
-            android:textColor="@color/dark_grey"
+            android:entries="@array/Rates"
+            android:background="@drawable/et_bg"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_semi_bold"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRateLesson"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"/>
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/button_light_green_bg"
+            android:text="Rate the lesson"
+            android:textColor="@color/dark_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuideline"
+            app:layout_constraintRight_toRightOf="@id/rightGuideline"
+            app:layout_constraintTop_toBottomOf="@id/spRate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

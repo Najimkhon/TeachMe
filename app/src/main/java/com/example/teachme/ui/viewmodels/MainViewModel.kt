@@ -34,6 +34,10 @@ class MainViewModel @Inject constructor(
         mainRepository.deleteLesson(lessonPM)
     }
 
+    fun updateLesson(lessonPM: LessonPM) = viewModelScope.launch {
+        mainRepository.updateLesson(lessonPM)
+    }
+
     fun getLessonById(id: Int):LiveData<LessonPM> = mainRepository.getLessonById(id)
 
     fun getLessonsByDate(date: Long, selectedDays: String): LiveData<List<LessonPM>> = mainRepository.getLessonsByDate(date, selectedDays)

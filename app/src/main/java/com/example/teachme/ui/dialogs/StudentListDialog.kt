@@ -77,4 +77,9 @@ class StudentListDialog(private val listener: OnDialogClickListener) : DialogFra
             studentAdapter.setData(it)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

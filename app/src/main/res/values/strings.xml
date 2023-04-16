@@ -9,4 +9,13 @@
     <string name="add_description_text">You are adding one lesson with the chosen student for this date and time. The lesson will be added to all the same days of the week and will be visible on calendar.</string>
     <string name="add_new_lesson">ADD NEW LESSON</string>
     <string name="attach_student">Attach student</string>
+
+    <string-array name="Rates">
+        <item>Unrated</item>
+        <item>Horrible</item>
+        <item>Bad</item>
+        <item>Good</item>
+        <item>Great</item>
+        <item>Fantastic</item>
+    </string-array>
 </resources>
