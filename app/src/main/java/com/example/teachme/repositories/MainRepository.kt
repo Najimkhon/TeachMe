@@ -1,5 +1,6 @@
 package com.example.teachme.repositories
 
+import androidx.lifecycle.LiveData
 import com.example.teachme.data.db.LessonDAO
 import com.example.teachme.data.db.StudentDAO
 import com.example.teachme.data.models.LessonPM
@@ -16,6 +17,10 @@ class MainRepository @Inject constructor(
     suspend fun deleteStudent(studentPM: StudentPM) = studentDAO.deleteStudent(studentPM)
 
     fun getAllStudents() = studentDAO.getAllStudents()
+
+    fun searchThroughDatabase(query: String):LiveData<List<StudentPM>> {
+      return studentDAO.searchThroughDatabase(query)
+    }
 
     suspend fun insertLesson(lessonPM: LessonPM) = lessonDAO.insertLesson(lessonPM)
 

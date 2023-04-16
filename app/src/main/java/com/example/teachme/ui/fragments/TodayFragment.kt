@@ -26,6 +26,7 @@ class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::i
             val action = LessonsFragmentDirections.actionLessonsFragmentToAddLessonFragment(calendar.timeInMillis)
             findNavController().navigate(action)
         }
+
     }
     override fun assignObjects() {
         binding.rvLessons.apply {

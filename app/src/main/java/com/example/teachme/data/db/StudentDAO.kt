@@ -19,4 +19,7 @@ interface StudentDAO {
 
     @Query("SELECT * FROM student_table ORDER BY id DESC")
     fun getAllStudents(): LiveData<List<StudentPM>>
+
+    @Query("SELECT * FROM student_table WHERE fullName LIKE :query")
+    fun searchThroughDatabase(query: String): LiveData<List<StudentPM>>
 }

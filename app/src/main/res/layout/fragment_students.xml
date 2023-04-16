@@ -65,6 +65,7 @@
                 app:tint="@color/light_green" />
 
             <EditText
+                android:id="@+id/etSearchField"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="8dp"

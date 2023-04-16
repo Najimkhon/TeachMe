@@ -19,4 +19,7 @@ interface LessonDAO {
 
     @Query("SELECT * FROM lesson_table ORDER BY id DESC")
     fun getAllLessons(): LiveData<List<LessonPM>>
+
+
+   // fun getTodaysLessons(date: Long, selectedDays: String):LiveData<List<LessonPM>>
 }
