@@ -26,6 +26,8 @@ class MainViewModel @Inject constructor(
         mainRepository.deleteStudent(studentPM)
     }
 
+    fun getStudentById(id: Int):LiveData<StudentPM> = mainRepository.getStudentById(id)
+
     fun insertLesson(lessonPM: LessonPM) = viewModelScope.launch {
         mainRepository.insertLesson(lessonPM)
     }

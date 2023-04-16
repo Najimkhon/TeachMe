@@ -17,6 +17,9 @@ interface StudentDAO {
     @Delete
     suspend fun deleteStudent(studentPM: StudentPM)
 
+    @Query("SELECT * FROM student_table WHERE id = :id")
+    fun getStudentById(id: Int):LiveData<StudentPM>
+
     @Query("SELECT * FROM student_table ORDER BY id DESC")
     fun getAllStudents(): LiveData<List<StudentPM>>
 

@@ -16,6 +16,8 @@ class MainRepository @Inject constructor(
 
     suspend fun deleteStudent(studentPM: StudentPM) = studentDAO.deleteStudent(studentPM)
 
+    fun getStudentById(id: Int):LiveData<StudentPM> = studentDAO.getStudentById(id)
+
     fun getAllStudents() = studentDAO.getAllStudents()
 
     fun searchThroughDatabase(query: String):LiveData<List<StudentPM>> = studentDAO.searchThroughDatabase(query)
