@@ -9,7 +9,6 @@ import com.example.teachme.base.BaseFragment
 import com.example.teachme.data.models.LessonPM
 import com.example.teachme.databinding.FragmentTodayBinding
 import com.example.teachme.ui.adapters.LessonAdapter
-import com.example.teachme.ui.adapters.StudentAdapter
 import com.example.teachme.ui.layouts.LessonItemLayout
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,19 +16,22 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import java.util.*
 
 @AndroidEntryPoint
-class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::inflate), LessonItemLayout.OnClickListener {
+class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::inflate),
+    LessonItemLayout.OnClickListener {
 
     private var calendar = Calendar.getInstance()
     private val viewModel: MainViewModel by viewModels()
     private val lessonAdapter: LessonAdapter by lazy { LessonAdapter(requireContext(), this) }
 
     override fun setListeners() {
-        binding.fabAddLesson.setOnClickListener{
-            val action = LessonsFragmentDirections.actionLessonsFragmentToAddLessonFragment(calendar.timeInMillis)
+        binding.fabAddLesson.setOnClickListener {
+            val action =
+                LessonsFragmentDirections.actionLessonsFragmentToAddLessonFragment(calendar.timeInMillis)
             findNavController().navigate(action)
         }
 
     }
+
     override fun assignObjects() {
         binding.rvLessons.apply {
             adapter = lessonAdapter
@@ -40,22 +42,31 @@ class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::i
 
     override fun setObservers() {
         viewModel.lessons.observe(viewLifecycleOwner) {
-            it.forEach{
+            it.forEach {
                 var startdate = it.startDate
 
-                println("Current Lesson: " + it.autogenerateLessons + " selected days: " + it.selectedDays + "DAY OF THE WEEK" + getDayOfweek(startdate))
+                println(
+                    "Current Lesson: " + it.autogenerateLessons + " selected days: " + it.selectedDays + "DAY OF THE WEEK" + getDayOfweek(
+                        startdate
+                    )
+                )
                 println("Today is: ${getDayOfweek(calendar.timeInMillis)}")
             }
 
         }
-        viewModel.getLessonsByDate(calendar.timeInMillis, getDayOfweek(calendar.timeInMillis)).observe(viewLifecycleOwner){
-            lessonAdapter.setData(it)
-            it.forEach{
-                var startdate = it.startDate
+        viewModel.getLessonsByDate(calendar.timeInMillis, getDayOfweek(calendar.timeInMillis))
+            .observe(viewLifecycleOwner) {
+                lessonAdapter.setData(it)
+                it.forEach {
+                    var startdate = it.startDate
 
-                println("Current Lesson: " + it.autogenerateLessons + " selected days: " + it.selectedDays + "DAY OF THE WEEK" + getDayOfweek(startdate))
+                    println(
+                        "Current Lesson: " + it.autogenerateLessons + " selected days: " + it.selectedDays + "DAY OF THE WEEK" + getDayOfweek(
+                            startdate
+                        )
+                    )
+                }
             }
-        }
     }
 
     private fun getDayOfweek(timeInMillis: Long): String {
@@ -63,13 +74,13 @@ class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::i
         calendar.timeInMillis = timeInMillis
         val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
         var result = ""
-        when (dayOfWeek){
-            Calendar.MONDAY ->  result ="1"
-            Calendar.TUESDAY ->  result ="2"
-            Calendar.WEDNESDAY ->  result ="3"
-            Calendar.THURSDAY ->  result ="4"
-            Calendar.FRIDAY ->  result ="5"
-            Calendar.SATURDAY ->  result ="6"
+        when (dayOfWeek) {
+            Calendar.MONDAY -> result = "1"
+            Calendar.TUESDAY -> result = "2"
+            Calendar.WEDNESDAY -> result = "3"
+            Calendar.THURSDAY -> result = "4"
+            Calendar.FRIDAY -> result = "5"
+            Calendar.SATURDAY -> result = "6"
             Calendar.SUNDAY -> result = "7"
         }
         return "%$result%"

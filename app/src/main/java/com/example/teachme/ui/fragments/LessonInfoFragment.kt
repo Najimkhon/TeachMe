@@ -4,6 +4,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,7 @@ import com.example.teachme.base.BaseFragment
 import com.example.teachme.data.models.LessonPM
 import com.example.teachme.databinding.FragmentLessonInfoBinding
 import com.example.teachme.ui.adapters.StudentAdapter
+import com.example.teachme.ui.layouts.StudentItemLayout
 import com.example.teachme.ui.viewmodels.MainViewModel
 import com.example.teachme.ui.viewmodels.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,10 +23,10 @@ import java.util.*
 
 @AndroidEntryPoint
 class LessonInfoFragment :
-    BaseFragment<FragmentLessonInfoBinding>(FragmentLessonInfoBinding::inflate) {
+    BaseFragment<FragmentLessonInfoBinding>(FragmentLessonInfoBinding::inflate), StudentItemLayout.OnClickListener {
     private val viewModel: MainViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by viewModels()
-    private val studentAdapter: StudentAdapter by lazy { StudentAdapter(requireContext()) }
+    private val studentAdapter: StudentAdapter by lazy { StudentAdapter(requireContext(), this) }
     private val args by navArgs<LessonInfoFragmentArgs>()
     private val formatter = SimpleDateFormat("MMMM dd, EEEE", Locale.US)
     private val timeFormatter = SimpleDateFormat("HH:mm", Locale.US)
@@ -116,6 +118,11 @@ class LessonInfoFragment :
     override fun onStop() {
         super.onStop()
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+    }
+
+    override fun onItemClicked(studentId: Int) {
+        val action = StudentsFragmentDirections.actionStudentsFragmentToStudentInfoFragment(studentId)
+        findNavController().navigate(action)
     }
 
 }

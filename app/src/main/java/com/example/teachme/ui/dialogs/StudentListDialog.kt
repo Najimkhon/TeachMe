@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.teachme.R
 import com.example.teachme.data.models.StudentPM
 import com.example.teachme.databinding.StudentListDialogBinding
-import com.example.teachme.ui.adapters.StudentAdapter
 import com.example.teachme.ui.adapters.StudentDialogAdapter
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint

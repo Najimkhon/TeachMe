@@ -10,7 +10,8 @@ import com.example.teachme.data.models.StudentPM
 import com.example.teachme.ui.layouts.StudentItemLayout
 
 class StudentAdapter(
-    val context: Context
+    val context: Context,
+    private val listener: StudentItemLayout.OnClickListener
 ) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
     val diffCallback = object : DiffUtil.ItemCallback<StudentPM>() {
@@ -32,7 +33,7 @@ class StudentAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
-        return StudentViewHolder(StudentItemLayout(context))
+        return StudentViewHolder(StudentItemLayout(context, listener))
     }
 
     override fun getItemCount(): Int {

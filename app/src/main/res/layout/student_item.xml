@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
     android:layout_marginVertical="4dp"
-    android:background="@drawable/student_item_bg">
+    android:background="@drawable/student_item_bg"
+    android:id="@+id/itemLayout">
 
     <ImageView
         android:id="@+id/ivProfile"

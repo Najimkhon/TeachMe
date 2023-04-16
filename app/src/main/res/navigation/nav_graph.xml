@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_studentsFragment_to_addStudentFragment"
             app:destination="@id/addStudentFragment" />
+        <action
+            android:id="@+id/action_studentsFragment_to_studentInfoFragment"
+            app:destination="@id/studentInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addLessonFragment"
@@ -113,6 +116,18 @@
         tools:layout="@layout/fragment_lesson_info" >
         <argument
             android:name="currentLessonId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_lessonInfoFragment_to_studentInfoFragment"
+            app:destination="@id/studentInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentInfoFragment"
+        android:name="com.example.teachme.ui.fragments.StudentInfoFragment"
+        android:label="fragment_student_info"
+        tools:layout="@layout/fragment_student_info" >
+        <argument
+            android:name="studentId"
             app:argType="integer" />
     </fragment>
 </navigation>

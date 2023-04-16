@@ -8,7 +8,8 @@ import android.widget.RelativeLayout
 import com.example.teachme.data.models.StudentPM
 import com.example.teachme.databinding.StudentItemBinding
 
-class StudentItemLayout(context: Context) : RelativeLayout(context) {
+class StudentItemLayout(context: Context, private val listener: OnClickListener) :
+    RelativeLayout(context) {
 
     private val binding = StudentItemBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -18,5 +19,12 @@ class StudentItemLayout(context: Context) : RelativeLayout(context) {
 
     fun fillContent(studentPM: StudentPM) {
         binding.tvName.text = studentPM.fullName
+        binding.itemLayout.setOnClickListener {
+            listener.onItemClicked(studentPM.id)
+        }
+    }
+
+    interface OnClickListener {
+        fun onItemClicked(studentId: Int)
     }
 }
