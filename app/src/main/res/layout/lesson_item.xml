@@ -2,39 +2,105 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/darker_white"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintVertical_bias="0"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="10dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lessonTitle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
                 android:text="Lesson 1"
                 android:textSize="16sp"
-                android:fontFamily="@font/montserrat_semi_bold"
-                android:id="@+id/lessonTitle"
-                app:layout_constraintTop_toTopOf="parent"
+                android:ellipsize="marquee"
+                android:lines="1"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeTextType="uniform"
+                app:autoSizeStepGranularity="1sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/cvRate"/>
+
+            <ImageView
+                android:id="@+id/ivClock"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_clock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/lessonTitle"
+                app:layout_constraintTop_toBottomOf="@+id/lessonTitle" />
+
             <TextView
                 android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/lessonTitle"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/lessonTitle"
-                android:text="12:00-13:00"
-                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
-                />
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="12:00-13:00"
+                app:layout_constraintBottom_toBottomOf="@id/ivClock"
+                app:layout_constraintLeft_toRightOf="@id/ivClock"
+                app:layout_constraintTop_toTopOf="@id/ivClock" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardBackgroundColor="@color/smoky_green"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/lessonTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lessonTitle">
+
+                <TextView
+                    android:id="@+id/tvRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Unrated"
+                    android:textColor="@color/green"/>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvStudentsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:text="+2 Students"
+                app:layout_constraintBottom_toBottomOf="@id/tvTime"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvTime" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintBottom_toBottomOf="@id/tvStudentsCount"
+                app:layout_constraintRight_toLeftOf="@id/tvStudentsCount"
+                app:layout_constraintTop_toTopOf="@+id/tvStudentsCount" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
