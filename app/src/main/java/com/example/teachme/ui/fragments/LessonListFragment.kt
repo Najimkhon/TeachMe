@@ -1,5 +1,6 @@
 package com.example.teachme.ui.fragments
 
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -18,7 +19,8 @@ import java.util.*
 
 @AndroidEntryPoint
 class LessonListFragment :
-    BaseFragment<FragmentLessonListBinding>(FragmentLessonListBinding::inflate), LessonItemLayout.OnClickListener {
+    BaseFragment<FragmentLessonListBinding>(FragmentLessonListBinding::inflate),
+    LessonItemLayout.OnClickListener {
     private val viewModel: MainViewModel by viewModels()
     private val args by navArgs<AddLessonFragmentArgs>()
     private val lessonAdapter: LessonAdapter by lazy { LessonAdapter(requireContext(), this) }
@@ -33,8 +35,9 @@ class LessonListFragment :
     }
 
     override fun setListeners() {
-        binding.fabAddLesson.setOnClickListener{
-            val action = LessonListFragmentDirections.actionLessonListFragmentToAddLessonFragment(args.currentDate)
+        binding.fabAddLesson.setOnClickListener {
+            val action =
+                LessonListFragmentDirections.actionLessonListFragmentToAddLessonFragment(args.currentDate)
             findNavController().navigate(action)
         }
     }
@@ -47,9 +50,15 @@ class LessonListFragment :
     }
 
     override fun setObservers() {
-        viewModel.getLessonsByDate(args.currentDate, getDayOfweek(args.currentDate)).observe(viewLifecycleOwner){
-            lessonAdapter.setData(it)
-        }
+        viewModel.getLessonsByDate(args.currentDate, getDayOfweek(args.currentDate))
+            .observe(viewLifecycleOwner) {
+                if (it.isEmpty()) {
+                    binding.emptyMessage.visibility = View.VISIBLE
+                } else {
+                    binding.emptyMessage.visibility = View.GONE
+                    lessonAdapter.setData(it)
+                }
+            }
     }
 
     private fun getDayOfweek(timeInMillis: Long): String {
@@ -57,20 +66,21 @@ class LessonListFragment :
         calendar.timeInMillis = timeInMillis
         val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
         var result = ""
-        when (dayOfWeek){
-            Calendar.MONDAY ->  result ="1"
-            Calendar.TUESDAY ->  result ="2"
-            Calendar.WEDNESDAY ->  result ="3"
-            Calendar.THURSDAY ->  result ="4"
-            Calendar.FRIDAY ->  result ="5"
-            Calendar.SATURDAY ->  result ="6"
+        when (dayOfWeek) {
+            Calendar.MONDAY -> result = "1"
+            Calendar.TUESDAY -> result = "2"
+            Calendar.WEDNESDAY -> result = "3"
+            Calendar.THURSDAY -> result = "4"
+            Calendar.FRIDAY -> result = "5"
+            Calendar.SATURDAY -> result = "6"
             Calendar.SUNDAY -> result = "7"
         }
         return "%$result%"
     }
 
     override fun onItemClicked(lesson: LessonPM) {
-        val action = LessonListFragmentDirections.actionLessonListFragmentToLessonInfoFragment(lesson.id)
+        val action =
+            LessonListFragmentDirections.actionLessonListFragmentToLessonInfoFragment(lesson.id)
         findNavController().navigate(action)
     }
 }

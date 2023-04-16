@@ -99,6 +99,13 @@
             app:layout_constraintTop_toBottomOf="@id/currentDateBlock"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0"/>
+        <TextView
+            android:id="@+id/emptyMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="No Lesson on this day!"
+            android:visibility="gone"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabAddLesson"
