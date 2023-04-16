@@ -6,8 +6,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teachme.base.BaseFragment
+import com.example.teachme.data.models.LessonPM
 import com.example.teachme.databinding.FragmentLessonListBinding
 import com.example.teachme.ui.adapters.LessonAdapter
+import com.example.teachme.ui.layouts.LessonItemLayout
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
@@ -16,10 +18,10 @@ import java.util.*
 
 @AndroidEntryPoint
 class LessonListFragment :
-    BaseFragment<FragmentLessonListBinding>(FragmentLessonListBinding::inflate) {
+    BaseFragment<FragmentLessonListBinding>(FragmentLessonListBinding::inflate), LessonItemLayout.OnClickListener {
     private val viewModel: MainViewModel by viewModels()
     private val args by navArgs<AddLessonFragmentArgs>()
-    private val lessonAdapter: LessonAdapter by lazy { LessonAdapter(requireContext()) }
+    private val lessonAdapter: LessonAdapter by lazy { LessonAdapter(requireContext(), this) }
     private val formatter = SimpleDateFormat("MMMM dd, EEEE", Locale.US)
 
     override fun assignObjects() {
@@ -65,5 +67,10 @@ class LessonListFragment :
             Calendar.SUNDAY -> result = "7"
         }
         return "%$result%"
+    }
+
+    override fun onItemClicked(lesson: LessonPM) {
+        val action = LessonListFragmentDirections.actionLessonListFragmentToLessonInfoFragment(lesson.id)
+        findNavController().navigate(action)
     }
 }

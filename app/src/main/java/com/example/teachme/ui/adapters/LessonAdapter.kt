@@ -7,12 +7,11 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teachme.data.models.LessonPM
-import com.example.teachme.data.models.StudentPM
 import com.example.teachme.ui.layouts.LessonItemLayout
-import com.example.teachme.ui.layouts.StudentItemLayout
 
 class LessonAdapter(
-    val context: Context
+    val context: Context,
+    private val listener: LessonItemLayout.OnClickListener
 ) : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
 
     val diffCallback = object : DiffUtil.ItemCallback<LessonPM>() {
@@ -37,7 +36,7 @@ class LessonAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
-        return LessonViewHolder(LessonItemLayout(context))
+        return LessonViewHolder(LessonItemLayout(context, listener))
     }
 
     override fun getItemCount(): Int {

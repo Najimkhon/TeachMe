@@ -8,7 +8,7 @@ import com.example.teachme.databinding.LessonItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class LessonItemLayout(context: Context) :
+class LessonItemLayout(context: Context, private val listener: OnClickListener) :
     RelativeLayout(context) {
 
     private val binding = LessonItemBinding.inflate(LayoutInflater.from(context), this, true)
@@ -26,5 +26,13 @@ class LessonItemLayout(context: Context) :
             tvRate.text = lessonPM.rate.name
             tvStudentsCount.text = "$studentCount Students"
         }
+        binding.itemLayout.setOnClickListener{
+            listener.onItemClicked(lessonPM)
+        }
+
+    }
+
+    interface OnClickListener{
+        fun onItemClicked(lesson: LessonPM)
     }
 }

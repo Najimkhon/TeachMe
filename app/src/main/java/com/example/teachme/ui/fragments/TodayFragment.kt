@@ -6,20 +6,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teachme.base.BaseFragment
+import com.example.teachme.data.models.LessonPM
 import com.example.teachme.databinding.FragmentTodayBinding
 import com.example.teachme.ui.adapters.LessonAdapter
 import com.example.teachme.ui.adapters.StudentAdapter
+import com.example.teachme.ui.layouts.LessonItemLayout
 import com.example.teachme.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import java.util.*
 
 @AndroidEntryPoint
-class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::inflate) {
+class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::inflate), LessonItemLayout.OnClickListener {
 
     private var calendar = Calendar.getInstance()
     private val viewModel: MainViewModel by viewModels()
-    private val lessonAdapter: LessonAdapter by lazy { LessonAdapter(requireContext()) }
+    private val lessonAdapter: LessonAdapter by lazy { LessonAdapter(requireContext(), this) }
 
     override fun setListeners() {
         binding.fabAddLesson.setOnClickListener{
@@ -71,6 +73,11 @@ class TodayFragment : BaseFragment<FragmentTodayBinding>(FragmentTodayBinding::i
             Calendar.SUNDAY -> result = "7"
         }
         return "%$result%"
+    }
+
+    override fun onItemClicked(lesson: LessonPM) {
+        val action = LessonsFragmentDirections.actionLessonsFragmentToLessonInfoFragment(lesson.id)
+        findNavController().navigate(action)
     }
 
 }

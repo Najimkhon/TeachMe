@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_lessonsFragment_to_lessonListFragment"
             app:destination="@id/lessonListFragment" />
+        <action
+            android:id="@+id/action_lessonsFragment_to_lessonInfoFragment"
+            app:destination="@id/lessonInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/pollsFragment"
@@ -99,5 +102,17 @@
         <action
             android:id="@+id/action_lessonListFragment_to_addLessonFragment"
             app:destination="@id/addLessonFragment" />
+        <action
+            android:id="@+id/action_lessonListFragment_to_lessonInfoFragment"
+            app:destination="@id/lessonInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonInfoFragment"
+        android:name="com.example.teachme.ui.fragments.LessonInfoFragment"
+        android:label="fragment_lesson_info"
+        tools:layout="@layout/fragment_lesson_info" >
+        <argument
+            android:name="currentLessonId"
+            app:argType="integer" />
     </fragment>
 </navigation>
