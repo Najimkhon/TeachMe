@@ -18,6 +18,9 @@ interface LessonDAO {
     @Delete
     suspend fun deleteLesson(lessonPM: LessonPM)
 
+    @Query("SELECT * FROM lesson_table WHERE id = :id")
+    fun getLessonById(id: Int):LiveData<LessonPM>
+
     @Query("SELECT * FROM lesson_table ORDER BY id DESC")
     fun getAllLessons(): LiveData<List<LessonPM>>
 

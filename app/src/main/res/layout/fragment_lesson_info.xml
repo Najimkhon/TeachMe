@@ -172,53 +172,58 @@
             android:gravity="center"
             >
             <TextView
+                android:id="@+id/tvMon"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Mon"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekday_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tvTue"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Tue"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekday_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tvWed"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Wed"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekday_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tvThu"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Thu"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekday_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tvFri"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Fri"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekday_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
 
@@ -234,23 +239,25 @@
             android:gravity="center"
             >
             <TextView
+                android:id="@+id/tvSat"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Mon"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekend_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tvSun"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="Tue"
                 android:padding="12dp"
                 android:textColor="@color/darker_white"
                 android:background="@drawable/weekend_bg"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:gravity="center"
                 />
         </LinearLayout>

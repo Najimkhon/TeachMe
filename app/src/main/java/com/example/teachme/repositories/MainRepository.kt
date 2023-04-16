@@ -26,6 +26,8 @@ class MainRepository @Inject constructor(
 
     suspend fun deleteLesson(lessonPM: LessonPM) = lessonDAO.deleteLesson(lessonPM)
 
+    fun getLessonById(id: Int):LiveData<LessonPM> = lessonDAO.getLessonById(id)
+
     fun getAllLessons() = lessonDAO.getAllLessons()
 
 }
