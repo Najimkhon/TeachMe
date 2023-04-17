@@ -63,6 +63,10 @@ class LessonInfoFragment :
             Toast.makeText(requireContext(), "Your note is saved!", Toast.LENGTH_SHORT).show()
         }
 
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
+
     }
 
     override fun assignObjects() {

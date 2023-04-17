@@ -111,6 +111,10 @@ class AddLessonFragment :
                     .show()
             }
         }
+
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 
     override fun assignObjects() {

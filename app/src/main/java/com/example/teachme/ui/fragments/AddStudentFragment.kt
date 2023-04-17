@@ -24,6 +24,9 @@ class AddStudentFragment :
         binding.btnAddStudent.setOnClickListener {
             addNewStudent()
         }
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 
     override fun onStart() {

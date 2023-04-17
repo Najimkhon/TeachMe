@@ -3,6 +3,7 @@ package com.example.teachme.ui.fragments
 import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.teachme.base.BaseFragment
 import com.example.teachme.databinding.FragmentStudentInfoBinding
@@ -41,6 +42,10 @@ class StudentInfoFragment : BaseFragment<FragmentStudentInfoBinding>(FragmentStu
         binding.btnCall.setOnClickListener{
             val intent = Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumber))
             startActivity(intent)
+        }
+
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
         }
     }
 

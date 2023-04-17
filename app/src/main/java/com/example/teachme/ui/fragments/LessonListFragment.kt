@@ -40,6 +40,9 @@ class LessonListFragment :
                 LessonListFragmentDirections.actionLessonListFragmentToAddLessonFragment(args.currentDate)
             findNavController().navigate(action)
         }
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 
     override fun prepareUI() {

@@ -14,5 +14,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
             val action = ProfileFragmentDirections.actionProfileFragmentToIntroFragment()
             findNavController().navigate(action)
         }
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 }

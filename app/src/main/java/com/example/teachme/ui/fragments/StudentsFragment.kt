@@ -56,6 +56,10 @@ class StudentsFragment : BaseFragment<FragmentStudentsBinding>(FragmentStudentsB
             override fun afterTextChanged(p0: Editable?) {}
 
         })
+
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 
     private fun searchDatabase(query: String?) {
